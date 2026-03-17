@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Search Tools Dashboard",
-  description: "Modular App Router dashboard with reusable Algolia search wiring",
+  description: "Modular App Router landing page for modern developer tools",
 };
 
 export default function RootLayout({
