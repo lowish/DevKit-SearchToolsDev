@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 interface Tool {
   name: string;
@@ -90,7 +91,7 @@ const categories: Category[] = [
     slug: "components",
     tools: [
       {
-        name: "shadcn/ui",
+        name: "Shadcn/ui",
         description: "Composable React components built for customization with Tailwind CSS.",
         tags: ["React", "UI"],
       },
@@ -197,16 +198,19 @@ function getToolHref(name: string) {
 
 export function ToolsShowcase() {
   return (
-    <section className="mx-auto w-full max-w-6xl pb-12">
+    <section className="mx-auto w-full max-w-6xl pb-12 pt-2">
       {categories.map((category) => (
-        <div key={category.slug} id={category.slug} className="mb-16">
-          <div className="mb-5 flex items-center justify-between gap-4">
-            <h2 className="text-2xl font-semibold text-white">{category.name}</h2>
+        <div key={category.slug} id={category.slug} className="mb-16 space-y-5">
+          <div className="flex items-center justify-between gap-4">
+            <h2 className="text-2xl font-semibold tracking-tight text-zinc-100 md:text-3xl">
+              {category.name}
+            </h2>
             <Link
               href={`#${category.slug}`}
-              className="text-sm text-zinc-400 transition-colors hover:text-zinc-200"
+              className="inline-flex items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-900/60 px-3 py-1.5 text-sm font-medium text-zinc-400 transition-all hover:border-zinc-700 hover:text-zinc-100"
             >
-              View all ↗
+              View all
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
 
@@ -217,24 +221,28 @@ export function ToolsShowcase() {
                 href={getToolHref(tool.name)}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="rounded-xl border border-zinc-800 bg-zinc-900 p-5 transition-all duration-200 hover:border-zinc-600"
+                className="group flex h-full flex-col rounded-xl border border-zinc-800/90 bg-zinc-900/70 p-5 transition-all duration-200 hover:border-zinc-700"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-zinc-800 text-base font-semibold text-zinc-200">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-800/90 text-sm font-semibold text-zinc-200">
                     {getToolInitial(tool.name)}
                   </div>
 
-                  <div className="min-w-0">
-                    <h3 className="text-2xl font-semibold leading-tight text-white">{tool.name}</h3>
-                    <p className="mt-2 line-clamp-2 text-sm text-zinc-400">{tool.description}</p>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-lg font-semibold tracking-tight text-zinc-100 transition-colors group-hover:text-white">
+                      {tool.name}
+                    </h3>
+                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-zinc-400">
+                      {tool.description}
+                    </p>
                   </div>
                 </div>
 
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-5 flex flex-wrap gap-2 border-t border-zinc-800/80 pt-4">
                   {tool.tags.map((tag) => (
                     <span
                       key={`${tool.name}-${tag}`}
-                      className="rounded-full bg-zinc-800 px-2.5 py-0.5 text-xs text-zinc-400"
+                      className="rounded-full border border-zinc-700/80 bg-zinc-800/80 px-2.5 py-0.5 text-xs font-medium text-zinc-300"
                     >
                       {tag}
                     </span>
