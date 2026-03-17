@@ -30,7 +30,7 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
           </Link>
 
           <div className="flex items-center gap-5">
-            <Link href="/about" className="text-sm text-zinc-200 transition-colors hover:text-white">
+            <Link href="/about" className="text-md font-semibold text-zinc-200 transition-colors hover:text-white">
               About
             </Link>
             <Link

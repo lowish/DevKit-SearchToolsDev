@@ -14,13 +14,13 @@ const categorySectionIds: Record<(typeof categories)[number], string> = {
   Components: "components",
 };
 
-export function HeroSearch() {
-  const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]>(categories[0]);
+interface HeroSearchProps {
+  query: string;
+  onQueryChange: (query: string) => void;
+}
 
-  const onSearch = (_query: string, _category: string) => {
-    // Placeholder for future search integration.
-  };
+export function HeroSearch({ query, onQueryChange }: HeroSearchProps) {
+  const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]>(categories[0]);
 
   const scrollToCategory = (category: (typeof categories)[number]) => {
     const sectionId = categorySectionIds[category];
@@ -35,13 +35,11 @@ export function HeroSearch() {
   };
 
   const handleQueryChange = (nextQuery: string) => {
-    setQuery(nextQuery);
-    onSearch(nextQuery, activeCategory);
+    onQueryChange(nextQuery);
   };
 
   const handleCategoryClick = (category: (typeof categories)[number]) => {
     setActiveCategory(category);
-    onSearch(query, category);
     scrollToCategory(category);
   };
 
@@ -53,7 +51,7 @@ export function HeroSearch() {
           type="text"
           value={query}
           onChange={(event) => handleQueryChange(event.target.value)}
-          placeholder="Search for a tool or category..."
+          placeholder="Type to filter tools in the list..."
           aria-label="Search developer tools"
           className="w-full bg-transparent text-zinc-300 placeholder:text-zinc-500 focus:outline-none"
         />

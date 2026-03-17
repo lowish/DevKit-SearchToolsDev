@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
@@ -201,7 +203,7 @@ const toolLogos: Record<string, string> = {
   "Cursor": "/cursor.png",
   "v0": "/vO.webp",
   "Claude Code": "/claude.png",
-  "Manus": "/manuss.png",
+  "Manus": "/manus.png",
   "Codex": "/codex.png",
   "GitHub Copilot": "/copilot.jpg",
   "Vercel": "/vercel.png",
@@ -228,10 +230,38 @@ function getToolLogo(name: string) {
   return toolLogos[name] ?? null;
 }
 
-export function ToolsShowcase() {
+interface ToolsShowcaseProps {
+  searchQuery?: string;
+}
+
+export function ToolsShowcase({ searchQuery = "" }: ToolsShowcaseProps) {
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+  const filteredCategories = categories
+    .map((category) => ({
+      ...category,
+      tools: category.tools.filter((tool) => {
+        if (!normalizedQuery) {
+          return true;
+        }
+
+        const searchableText = [tool.name, tool.description, ...tool.tags, category.name]
+          .join(" ")
+          .toLowerCase();
+
+        return searchableText.includes(normalizedQuery);
+      }),
+    }))
+    .filter((category) => category.tools.length > 0);
+
   return (
     <section className="mx-auto w-full max-w-6xl pb-12 pt-2">
-      {categories.map((category) => (
+      {filteredCategories.length === 0 && normalizedQuery ? (
+        <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 text-center text-zinc-400">
+          No tools found for "{searchQuery}".
+        </div>
+      ) : null}
+
+      {filteredCategories.map((category) => (
         <div key={category.slug} id={category.slug} className="mb-16 space-y-5">
           <div className="flex items-center justify-between gap-4">
             <h2 className="text-2xl font-semibold tracking-tight text-zinc-100 md:text-3xl">
