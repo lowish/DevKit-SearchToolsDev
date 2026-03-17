@@ -81,9 +81,9 @@ const categories: Category[] = [
         tags: ["Cloud", "Backend"],
       },
       {
-        name: "Cloudflare Pages",
-        description: "Build and ship frontend experiences on Cloudflare's high-performance edge.",
-        tags: ["Edge", "Frontend"],
+        name: "Supabase",
+        description: "Build apps faster with a hosted Postgres database, auth, storage, and realtime APIs.",
+        tags: ["Backend", "Database"],
       },
     ],
   },
@@ -173,7 +173,7 @@ const toolLinks: Record<string, string> = {
   Railway: "https://railway.app",
   "Fly.io": "https://fly.io",
   Render: "https://render.com",
-  "Cloudflare Pages": "https://pages.cloudflare.com",
+  "Supabase": "https://supabase.com",
   "shadcn/ui": "https://ui.shadcn.com",
   "Radix UI": "https://www.radix-ui.com",
   "Magic UI": "https://magicui.design",
@@ -204,6 +204,12 @@ const toolLogos: Record<string, string> = {
   "Bolt.new": "/bolt.png",
   "Codex": "/codex.png",
   "GitHub Copilot": "/copilot.jpg",
+  "Vercel": "/vercel.png",
+  "Netlify": "/netlify.png",
+  "Railway": "/railway.png",
+  "Fly.io": "/flyio.jpg",
+  "Render": "/render.jpg",
+  "Supabase": "/supabase.jpg",
 };
 
 function getToolLogo(name: string) {
