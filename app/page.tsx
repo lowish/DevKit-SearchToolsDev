@@ -1,5 +1,6 @@
 import Aurora from "@/components/Aurora";
 import { ToolsShowcase } from "@/components/ToolsShowcase";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 
 import { HeroSearch } from "./components/hero-search";
@@ -36,6 +37,8 @@ export default function Home() {
 
           <ToolsShowcase />
         </div>
+
+        <SiteFooter />
       </div>
     </main>
   );
