@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 interface Tool {
@@ -39,8 +40,8 @@ const categories: Category[] = [
         tags: ["AI", "Full-stack"],
       },
       {
-        name: "Windsurf",
-        description: "Code with agentic assistance and flow-aware tooling tailored for developers.",
+        name: "Codex",
+        description: "AI coding agent from OpenAI for understanding, editing, and shipping code faster.",
         tags: ["Editor", "AI"],
       },
       {
@@ -165,7 +166,7 @@ const toolLinks: Record<string, string> = {
   v0: "https://v0.dev",
   "Claude Code": "https://www.anthropic.com/claude-code",
   "Bolt.new": "https://bolt.new",
-  Windsurf: "https://windsurf.com",
+  Codex: "https://openai.com/codex",
   "GitHub Copilot": "https://github.com/features/copilot",
   Vercel: "https://vercel.com",
   Netlify: "https://www.netlify.com",
@@ -196,6 +197,19 @@ function getToolHref(name: string) {
   return toolLinks[name] ?? "#";
 }
 
+const toolLogos: Record<string, string> = {
+  "Cursor": "/cursor.png",
+  "v0": "/vO.webp",
+  "Claude Code": "/claude.png",
+  "Bolt.new": "/bolt.png",
+  "Codex": "/codex.png",
+  "GitHub Copilot": "/copilot.jpg",
+};
+
+function getToolLogo(name: string) {
+  return toolLogos[name] ?? null;
+}
+
 export function ToolsShowcase() {
   return (
     <section className="mx-auto w-full max-w-6xl pb-12 pt-2">
@@ -215,41 +229,55 @@ export function ToolsShowcase() {
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {category.tools.map((tool) => (
-              <Link
-                key={tool.name}
-                href={getToolHref(tool.name)}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="group flex h-full flex-col rounded-xl border border-zinc-800/90 bg-zinc-900/70 p-5 transition-all duration-200 hover:border-zinc-700"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-800/90 text-sm font-semibold text-zinc-200">
-                    {getToolInitial(tool.name)}
+            {category.tools.map((tool) => {
+              const logo = getToolLogo(tool.name);
+
+              return (
+                <Link
+                  key={tool.name}
+                  href={getToolHref(tool.name)}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="group flex h-full flex-col rounded-xl border border-zinc-800/90 bg-zinc-900/70 p-5 transition-all duration-200 hover:border-zinc-700"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-zinc-700 bg-zinc-800/90 text-sm font-semibold text-zinc-200">
+                      {logo ? (
+                        <Image
+                          src={logo}
+                          alt={`${tool.name} logo`}
+                          width={40}
+                          height={40}
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        getToolInitial(tool.name)
+                      )}
+                    </div>
+
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-lg font-semibold tracking-tight text-zinc-100 transition-colors group-hover:text-white">
+                        {tool.name}
+                      </h3>
+                      <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-zinc-400">
+                        {tool.description}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="min-w-0 flex-1">
-                    <h3 className="text-lg font-semibold tracking-tight text-zinc-100 transition-colors group-hover:text-white">
-                      {tool.name}
-                    </h3>
-                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-zinc-400">
-                      {tool.description}
-                    </p>
+                  <div className="mt-5 flex flex-wrap gap-2 border-t border-zinc-800/80 pt-4">
+                    {tool.tags.map((tag) => (
+                      <span
+                        key={`${tool.name}-${tag}`}
+                        className="rounded-full border border-zinc-700/80 bg-zinc-800/80 px-2.5 py-0.5 text-xs font-medium text-zinc-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                </div>
-
-                <div className="mt-5 flex flex-wrap gap-2 border-t border-zinc-800/80 pt-4">
-                  {tool.tags.map((tag) => (
-                    <span
-                      key={`${tool.name}-${tag}`}
-                      className="rounded-full border border-zinc-700/80 bg-zinc-800/80 px-2.5 py-0.5 text-xs font-medium text-zinc-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         </div>
       ))}
