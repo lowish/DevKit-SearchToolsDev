@@ -25,24 +25,24 @@ const categories: Category[] = [
         tags: ["Editor", "AI", "Code"],
       },
       {
-        name: "v0",
-        description: "Generate UI components and full app structures from plain language prompts.",
-        tags: ["AI", "Code"],
-      },
-      {
         name: "Claude Code",
         description: "Work with Claude directly in your codebase to build and debug faster.",
         tags: ["AI", "Code"],
       },
       {
-        name: "Bolt.new",
-        description: "Create and iterate on full-stack applications entirely from your browser.",
-        tags: ["AI", "Full-stack"],
-      },
-      {
         name: "Codex",
         description: "AI coding agent from OpenAI for understanding, editing, and shipping code faster.",
         tags: ["Editor", "AI"],
+      },
+       {
+        name: "v0",
+        description: "Generate UI components and full app structures from plain language prompts.",
+        tags: ["AI", "Code"],
+      },
+      {
+        name: "Manus",
+        description: "AI software engineer built to plan, write, and iterate on production-ready code.",
+        tags: ["AI", "Agent"],
       },
       {
         name: "GitHub Copilot",
@@ -148,14 +148,14 @@ const categories: Category[] = [
         tags: ["Multimodal", "AI"],
       },
       {
-        name: "Groq",
+        name: "Grok",
         description: "Ultra-fast inference platform optimized for responsive AI applications.",
         tags: ["Inference", "Performance"],
       },
       {
-        name: "Replicate",
-        description: "Run and integrate open-source ML models via a simple cloud API.",
-        tags: ["Models", "API"],
+        name: "Lovable",
+        description: "Build and ship full-stack products quickly with AI-guided app generation.",
+        tags: ["Builder", "AI"],
       },
     ],
   },
@@ -165,7 +165,7 @@ const toolLinks: Record<string, string> = {
   Cursor: "https://cursor.com",
   v0: "https://v0.dev",
   "Claude Code": "https://www.anthropic.com/claude-code",
-  "Bolt.new": "https://bolt.new",
+  Manus: "https://manus.im",
   Codex: "https://openai.com/codex",
   "GitHub Copilot": "https://github.com/features/copilot",
   Vercel: "https://vercel.com",
@@ -184,8 +184,8 @@ const toolLinks: Record<string, string> = {
   Claude: "https://claude.ai",
   Perplexity: "https://www.perplexity.ai",
   Gemini: "https://gemini.google.com",
-  Groq: "https://groq.com",
-  Replicate: "https://replicate.com",
+  Grok: "https://grok.com",
+  Lovable: "https://lovable.dev",
 };
 
 function getToolInitial(name: string) {
@@ -201,7 +201,7 @@ const toolLogos: Record<string, string> = {
   "Cursor": "/cursor.png",
   "v0": "/vO.webp",
   "Claude Code": "/claude.png",
-  "Bolt.new": "/bolt.png",
+  "Manus": "/manuss.png",
   "Codex": "/codex.png",
   "GitHub Copilot": "/copilot.jpg",
   "Vercel": "/vercel.png",
@@ -216,6 +216,12 @@ const toolLogos: Record<string, string> = {
   "Aceternity UI": "/aceternity.jpg",
   "Framer": "/framer.jpg",
   "Material UI": "/material.jpg",
+  "ChatGPT": "/chatpgt.png",
+  "Claude": "/claude.png",
+  "Perplexity": "/perplexity.png",
+  "Gemini": "/gemini.png",
+  "Grok": "/grok.png",
+  "Lovable": "/lovable.jpg",
 };
 
 function getToolLogo(name: string) {
