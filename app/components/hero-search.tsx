@@ -7,12 +7,31 @@ import { cn } from "@/lib/utils";
 
 const categories = ["Vibe Coding", "Hosting", "AI Tools", "Components"] as const;
 
+const categorySectionIds: Record<(typeof categories)[number], string> = {
+  "Vibe Coding": "vibe-coding",
+  Hosting: "hosting",
+  "AI Tools": "ai-tools",
+  Components: "components",
+};
+
 export function HeroSearch() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]>(categories[0]);
 
   const onSearch = (_query: string, _category: string) => {
     // Placeholder for future search integration.
+  };
+
+  const scrollToCategory = (category: (typeof categories)[number]) => {
+    const sectionId = categorySectionIds[category];
+    const target = document.getElementById(sectionId);
+
+    if (!target) {
+      return;
+    }
+
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", `#${sectionId}`);
   };
 
   const handleQueryChange = (nextQuery: string) => {
@@ -23,6 +42,7 @@ export function HeroSearch() {
   const handleCategoryClick = (category: (typeof categories)[number]) => {
     setActiveCategory(category);
     onSearch(query, category);
+    scrollToCategory(category);
   };
 
   return (
