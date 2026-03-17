@@ -88,42 +88,6 @@ const categories: Category[] = [
     ],
   },
   {
-    name: "Components",
-    slug: "components",
-    tools: [
-      {
-        name: "Shadcn/ui",
-        description: "Composable React components built for customization with Tailwind CSS.",
-        tags: ["React", "UI"],
-      },
-      {
-        name: "Radix UI",
-        description: "Accessible headless primitives for building polished design systems.",
-        tags: ["Accessibility", "Primitives"],
-      },
-      {
-        name: "Magic UI",
-        description: "Animated and interactive UI patterns designed for modern product landing pages.",
-        tags: ["Animation", "UI"],
-      },
-      {
-        name: "Aceternity UI",
-        description: "Visually rich components focused on storytelling and engaging interactions.",
-        tags: ["Components", "Effects"],
-      },
-      {
-        name: "Framer",
-        description: "Design and prototype highly interactive interfaces with smooth motion workflows.",
-        tags: ["Animation", "Motion"],
-      },
-      {
-        name: "Material UI",
-        description: "Production-ready React components implementing Google's Material Design system.",
-        tags: ["React", "Design System"],
-      },
-    ],
-  },
-  {
     name: "AI Tools",
     slug: "ai-tools",
     tools: [
@@ -159,6 +123,42 @@ const categories: Category[] = [
       },
     ],
   },
+  {
+    name: "Components",
+    slug: "components",
+    tools: [
+      {
+        name: "Shadcn/ui",
+        description: "Composable React components built for customization with Tailwind CSS.",
+        tags: ["React", "UI"],
+      },
+      {
+        name: "Radix UI",
+        description: "Accessible headless primitives for building polished design systems.",
+        tags: ["Accessibility", "Primitives"],
+      },
+      {
+        name: "Magic UI",
+        description: "Animated and interactive UI patterns designed for modern product landing pages.",
+        tags: ["Animation", "UI"],
+      },
+      {
+        name: "Aceternity UI",
+        description: "Visually rich components focused on storytelling and engaging interactions.",
+        tags: ["Components", "Effects"],
+      },
+      {
+        name: "Framer",
+        description: "Design and prototype highly interactive interfaces with smooth motion workflows.",
+        tags: ["Animation", "Motion"],
+      },
+      {
+        name: "Material UI",
+        description: "Production-ready React components implementing Google's Material Design system.",
+        tags: ["React", "Design System"],
+      },
+    ],
+  }
 ];
 
 const toolLinks: Record<string, string> = {
