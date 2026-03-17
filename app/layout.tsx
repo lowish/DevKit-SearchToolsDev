@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Search Tools Dashboard",
+  title: "Devkit - SearchToolsDev",
   description: "Modular App Router landing page for modern developer tools",
 };
 

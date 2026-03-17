@@ -1,5 +1,5 @@
-import Aurora from "@/components/Aurora";
-import { ToolsShowcase } from "@/components/ToolsShowcase";
+import Aurora from "@/components/background/Aurora";
+import { ToolsShowcase } from "@/components/sections/ToolsShowcase";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 
