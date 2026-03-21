@@ -18,8 +18,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Devkit - SearchToolsDev",
+  title: "DevKit",
   description: "Modular App Router landing page for modern developer tools",
+  icons: {
+    icon: "/tool.png",
+    apple: "/tool.png",
+  },
 };
 
 export default function RootLayout({
