@@ -1,6 +1,6 @@
 # DevKit
 
-![Devkit-Preview](public/Devkit-Preview.jpg
+![Devkit-Preview](public/Devkit-Preview.jpg)
 
 DevKit is a modern developer tools discovery page built with Next.js App Router.
 It provides a searchable, category-based showcase of tools for developers (AI tools, hosting, components, and more).
