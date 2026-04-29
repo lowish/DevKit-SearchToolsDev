@@ -203,7 +203,7 @@ const toolLogos: Record<string, string> = {
   "Cursor": "/cursor.png",
   "v0": "/vO.webp",
   "Claude Code": "/claude.png",
-  "Manus": "/manus.png",
+  "Manus": "/manuss.png",
   "Codex": "/codex.png",
   "GitHub Copilot": "/copilot.jpg",
   "Vercel": "/vercel.png",
