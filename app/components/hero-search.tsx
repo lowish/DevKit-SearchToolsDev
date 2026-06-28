@@ -67,8 +67,7 @@ export function HeroSearch({ query, onQueryChange }: HeroSearchProps) {
               type="button"
               onClick={() => handleCategoryClick(category)}
               className={cn(
-                "cursor-pointer rounded-full bg-zinc-800 px-4 py-1.5 text-sm text-zinc-300 transition-all hover:bg-zinc-700",
-                isActive && "bg-white font-medium text-black",
+                "cursor-pointer bg-zinc-800 px-4 py-1.5 text-sm text-zinc-300 bg-white font-medium text-black"
               )}
             >
               {category}
