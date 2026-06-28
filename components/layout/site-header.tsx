@@ -1,4 +1,3 @@
-import { Github } from "lucide-react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
@@ -32,15 +31,6 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
           <div className="flex items-center gap-5">
             <Link href="/about" className="text-md font-semibold text-zinc-200 transition-colors hover:text-white">
               About
-            </Link>
-            <Link
-              href="https://github.com/lowish"
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label="Open GitHub"
-              className="text-zinc-200 transition-colors hover:text-white"
-            >
-              <Github className="h-5 w-5" />
             </Link>
           </div>
         </div>
